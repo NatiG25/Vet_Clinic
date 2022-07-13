@@ -1,8 +1,12 @@
-# curriculum-databases-projects-template
+# Vet Clinic
+![](https://img.shields.io/badge/Microverse-blueviolet)
 
-> This template should be used for database related projects at Microverse.
-> Generate your own repository, update this README and edit all files content while working on projects. You should not be adding any new files unless asked otherwise.
+> This web application has tables and databases for all animals that come to the clinic. 
 
+## Built With
+
+- PgAdmin
+- PostgreSQL
 
 ## Getting Started
 
@@ -15,11 +19,11 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 ## Authors
 
-👤 **Author1**
+👤 **Natnail**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@NatiG25](https://github.com/NatiG25)
+- Twitter: [@NatiG87702270](https://twitter.com/NatiG87702270)
+- LinkedIn: [@Temesgen](https://linkedin.com/in/temesgen-g-gorgis-0910a6229 )
 
 ## 🤝 Contributing
 
@@ -33,9 +37,8 @@ Give a ⭐️ if you like this project!
 
 ## Acknowledgments
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- etc
+- Microverse linters
+- Coding partners
 
 ## 📝 License
 
