@@ -78,6 +78,8 @@ SELECT O.full_name, A.name FROM animals A
 JOIN owners O ON A.owner_id = O.id
 WHERE A.escape_attempts = 0 AND O.id = 5;
 
-SELECT O.full_name, COUNT(owner_id) FROM animals A
+SELECT O.full_name, COUNT(*) FROM animals A
 JOIN owners O ON A.owner_id = O.id
-GROUP BY O.full_name;
+GROUP BY O.full_name
+ORDER BY COUNT(*)
+DESC LIMIT 1;
