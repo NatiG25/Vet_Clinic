@@ -83,3 +83,70 @@ JOIN owners O ON A.owner_id = O.id
 GROUP BY O.full_name
 ORDER BY COUNT(*)
 DESC LIMIT 1;
+
+-- MANY TO MANY 
+SELECT V.name as Vet_name, A.name as Animal_name, I.date_of_visits FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+WHERE V.name = 'William Tatcher'
+ORDER BY I.date_of_visits
+DESC
+LIMIT 1;
+
+SELECT V.name as Vet_name, COUNT(*)
+FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+WHERE V.name = 'Stephanie Mendez'
+GROUP BY V.name;
+
+SELECT V.name as Vet_name, P.name as specialty
+FROM specializations S 
+JOIN species P ON S.species_id = P.id
+RIGHT JOIN vets V ON S.vets_id = V.id;
+
+SELECT A.name as Animal_name FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+WHERE V.id = 3 AND I.date_of_visits BETWEEN '2020-4-1' AND '2020-8-30';
+
+SELECT A.name as Animal_name, COUNT(*) FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+GROUP BY A.name
+ORDER BY COUNT(*)
+DESC
+LIMIT 1;
+
+SELECT V.name as Vet_name, A.name as Animal_name, I.date_of_visits 
+FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+WHERE V.id = 2
+ORDER BY I.date_of_visits
+LIMIT 1;
+
+SELECT V.name as Vet_name, A.name as Animal_name, I.date_of_visits 
+FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+ORDER BY I.date_of_visits
+LIMIT 1;
+
+SELECT V.name as Vet_name, COUNT(*)
+FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN vets V ON I.vets_id = V.id
+JOIN specializations S ON S.vets_id = V.id
+WHERE A.species_id != S.species_id AND V.id != 3
+GROUP BY V.name;
+
+SELECT P.name AS specialty, COUNT(*)
+FROM visits I 
+JOIN animals A ON I.animals_id = A.id
+JOIN species P ON A.species_id = P.id
+WHERE I.vets_id = 2
+GROUP BY P.name
+ORDER BY COUNT(*)
+DESC
+LIMIT 1;
