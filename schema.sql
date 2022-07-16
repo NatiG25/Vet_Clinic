@@ -51,6 +51,7 @@ CREATE TABLE visits (
 	id	INT GENERATED ALWAYS AS IDENTITY,
 	animals_id INT,
 	vets_id INT,
+	date_of_visits date,
 	PRIMARY KEY(id)
 );
 
