@@ -141,10 +141,12 @@ JOIN specializations S ON S.vets_id = V.id
 WHERE A.species_id != S.species_id AND V.id != 3
 GROUP BY V.name;
 
-SELECT A.species_id, count(*)
+SELECT P.name AS specialty, COUNT(*)
 FROM visits I 
 JOIN animals A ON I.animals_id = A.id
-JOIN vets V ON I.vets_id = V.id
-WHERE V.id = 2
-GROUP BY A.species_id
+JOIN species P ON A.species_id = P.id
+WHERE I.vets_id = 2
+GROUP BY P.name
+ORDER BY COUNT(*)
+DESC
 LIMIT 1;
