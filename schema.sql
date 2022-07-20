@@ -16,6 +16,7 @@ CREATE TABLE owners (
 	age INT,
 	PRIMARY KEY(id)
 );
+ALTER TABLE owners ADD COLUMN email VARCHAR(120);
 
 CREATE TABLE species (
 	id	INT GENERATED ALWAYS AS IDENTITY,
@@ -49,11 +50,17 @@ ALTER TABLE specializations ADD FOREIGN KEY (vets_id) REFERENCES vets(id);
 
 CREATE TABLE visits (
 	id	INT GENERATED ALWAYS AS IDENTITY,
-	animals_id INT,
-	vets_id INT,
-	date_of_visits date,
+	animal_id INT,
+	vet_id INT,
+	date_of_visit date,
 	PRIMARY KEY(id)
 );
 
-ALTER TABLE visits ADD FOREIGN KEY (animals_id) REFERENCES animals(id);
-ALTER TABLE visits ADD FOREIGN KEY (vets_id) REFERENCES vets(id);
+ALTER TABLE visits ADD FOREIGN KEY (animal_id) REFERENCES animals(id);
+ALTER TABLE visits ADD FOREIGN KEY (vet_id) REFERENCES vets(id);
+INSERT INTO visits (animal_id, vet_id, date_of_visit) SELECT * FROM (SELECT id FROM animals) animal_ids, (SELECT id FROM vets) vets_ids, generate_series('1980-01-01'::timestamp, '2021-01-01', '4 hours') visit_timestamp;
+insert into owners (full_name, email) select 'Owner ' || generate_series(1,2500000), 'owner_' || generate_series(1,2500000) || '@mail.com';
+CREATE INDEX animal_id_asc ON visits(animal_id ASC);
+CREATE INDEX vet_id_asc ON visits(vet_id ASC);
+CREATE INDEX owner_email_asc ON owners(email ASC);
+
