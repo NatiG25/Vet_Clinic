@@ -18,3 +18,20 @@ CREATE TABLE treatments (
 	name VARCHAR(100),
 	type VARCHAR(100)
 );
+
+CREATE TABLE invoices (
+	id	INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+	total_amount DECIMAL,
+	generated_at TIMESTAMP,
+    payed_at VARCHAR(100),
+    medical_history_id INT REFERENCES medical_histories(id)
+);
+
+CREATE TABLE invoice_items (
+	id	INT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+    unit_price DECIMAL,
+	quantity INT,
+	total_price DECIMAL,
+    invoice_id  INT REFERENCES invoices(id),
+    treatment_id INT REFERENCES treatments(id)
+);
