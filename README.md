@@ -23,7 +23,7 @@ This repository includes files with plain SQL that can be used to recreate a dat
 
 - GitHub: [@NatiG25](https://github.com/NatiG25)
 - Twitter: [@NatiG87702270](https://twitter.com/NatiG87702270)
-- LinkedIn: [@Temesgen](https://linkedin.com/in/temesgen-g-gorgis-0910a6229 )
+- LinkedIn: [@Natnail](https://www.linkedin.com/in/natnailgorgis/)
 
 ## 🤝 Contributing
 
